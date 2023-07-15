@@ -47,6 +47,12 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                 ),
+          SizedBox(height: 40),
+          Text("Unlimited Designs"),
+          Text("Subscription Service"),
+          SizedBox(
+            height: 20,
+          )
         ],
       ),
     );
