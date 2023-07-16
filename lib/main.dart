@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    TextStyle _bodyTextStyle =
+        TextStyle(fontSize: 40, fontWeight: FontWeight.bold);
     return Scaffold(
       backgroundColor: Colors.pink.shade50,
       body: ListView(
@@ -48,8 +50,8 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
           SizedBox(height: 40),
-          Text("Unlimited Designs"),
-          Text("Subscription Service"),
+          Center(child: Text("Unlimited Designs", style: _bodyTextStyle)),
+          Center(child: Text("Subscription Service", style: _bodyTextStyle)),
           SizedBox(
             height: 20,
           )
