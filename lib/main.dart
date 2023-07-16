@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle _bodyTextStyle =
         TextStyle(fontSize: 40, fontWeight: FontWeight.bold);
+    var priceButtonPadding = MaterialStateProperty.all(
+        EdgeInsets.symmetric(horizontal: 50, vertical: 25));
     return Scaffold(
       backgroundColor: Colors.pink.shade50,
       body: ListView(
@@ -52,8 +54,35 @@ class MyApp extends StatelessWidget {
           SizedBox(height: 40),
           Center(child: Text("Unlimited Designs", style: _bodyTextStyle)),
           Center(child: Text("Subscription Service", style: _bodyTextStyle)),
-          SizedBox(
-            height: 20,
+          SizedBox(height: 20),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: Text(
+              "A design-made-easy monthly subscription solution tailored around your busines needs. No fuss, no hassle, no messy contracts, just straight forward best-in-class design at a click of a button",
+              overflow: TextOverflow.visible,
+              softWrap: true,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+            ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            style: ButtonStyle(
+                padding: priceButtonPadding,
+                overlayColor:
+                    MaterialStateProperty.all(Colors.black.withOpacity(0.8)),
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.black.withOpacity(0.7)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)))),
+            onPressed: () {},
+            child: Text(
+              "View Pricing",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25),
+            ),
           )
         ],
       ),
