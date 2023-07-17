@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
           Center(child: Text("Subscription Service", style: _bodyTextStyle)),
           SizedBox(height: 20),
           Container(
+            margin: EdgeInsets.only(left: 50, right: 50),
             width: MediaQuery.of(context).size.width * 0.5,
             child: Text(
               "A design-made-easy monthly subscription solution tailored around your busines needs. No fuss, no hassle, no messy contracts, just straight forward best-in-class design at a click of a button",
@@ -66,22 +67,34 @@ class MyApp extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            style: ButtonStyle(
-                padding: priceButtonPadding,
-                overlayColor:
-                    MaterialStateProperty.all(Colors.black.withOpacity(0.8)),
-                backgroundColor:
-                    MaterialStateProperty.all(Colors.black.withOpacity(0.7)),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)))),
-            onPressed: () {},
-            child: Text(
-              "View Pricing",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25),
+          Container(
+            margin: EdgeInsets.only(left: 150, right: 150),
+            child: ElevatedButton(
+              onHover: (value) {
+                if (value) {
+                  priceButtonPadding = MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 60, vertical: 30));
+                } else {
+                  priceButtonPadding = MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 50, vertical: 25));
+                }
+              },
+              style: ButtonStyle(
+                  padding: priceButtonPadding,
+                  overlayColor:
+                      MaterialStateProperty.all(Colors.black.withOpacity(0.8)),
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.black.withOpacity(0.7)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40)))),
+              onPressed: () {},
+              child: Text(
+                "View Pricing",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25),
+              ),
             ),
           )
         ],
